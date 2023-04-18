@@ -1,0 +1,45 @@
+@model List<ContactoModel>
+
+@{
+    ViewBag.Title = "Listar Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>LISTAR CONTACTOS</h1>
+
+
+
+<div class="card">
+    <div class="card-header">
+        LISTAR CONTACTO
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="Mantenedor" class="btn btn-sucess" >Crear Nuevo <i class="bi bi-plus-circle" ></i></a>
+        <hr/>
+            <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Telefono</td>
+                        <td>@item.Correo</td>
+                        <td>
+                            <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-primary btn-sm" asp-route-IdContacto="@item.IdContacto">Editar <i class="bi bi-hammer"></i></a>
+                            <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm" asp-route-IdContacto="@item.IdContacto">Eliminar <i class="bi bi-x-lg"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            </table>
+    </div>
+</div>

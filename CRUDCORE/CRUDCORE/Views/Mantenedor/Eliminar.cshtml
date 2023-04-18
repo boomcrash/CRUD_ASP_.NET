@@ -1,0 +1,24 @@
+@model ContactoModel
+@{
+    ViewBag.Title = "Eliminar Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+  <div class="card-header">
+    CREAR CONTACTO
+  </div>
+  <div class="card-body">
+    <form asp-action="Eliminar" asp-controller="Mantenedor" method="post"> 
+            <input type="hidden" asp-for="IdContacto" class="form-control"/>
+
+                <div class="alert alert-danger" role="alert">
+                    QUIERES ELIMINAR EL CONTACTO  @Model.Nombre ?
+                </div>        
+
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+
+                <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la Listas</a>
+        
+    </form>
+    </div>
+</div>
